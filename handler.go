@@ -3,6 +3,8 @@ package pipe
 import (
 	"context"
 	"net/http"
+
+	"github.com/kr/pretty"
 )
 
 // Client has the information needed to work as a pipehub pipe.
@@ -22,6 +24,7 @@ func (Client) Default(next http.Handler) http.Handler {
 }
 
 // NewClient return a initialized client.
-func NewClient() (Client, error) {
+func NewClient(config map[string]interface{}) (Client, error) {
+	pretty.Println("config from pipe: ", config)
 	return Client{}, nil
 }
